@@ -1,0 +1,8 @@
+name: InventorySorting
+version: ${version}
+main: de.kolpa.mc.inventorysorting.InventorySorting
+api-version: 1.17
+prefix: InventorySorting
+authors: [ Kolpa ]
+description: Sorts Inventories on Open
+website: kolpa.de
