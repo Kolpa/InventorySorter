@@ -1,27 +1,23 @@
 package de.kolpa.mc.inventorysorting.handlers
 
-import de.kolpa.mc.inventorysorting.processing.conditions.config.SortConditionSetFactory
 import de.kolpa.mc.inventorysorting.processing.grouping.InventoryGrouper
 import de.kolpa.mc.inventorysorting.processing.sorting.InventorySorter
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
-import org.bukkit.event.inventory.InventoryOpenEvent
+import org.bukkit.event.inventory.ClickType
+import org.bukkit.event.inventory.InventoryClickEvent
 
-
-class PlayerInteractionHandler(
+class InventoryMiddleClickHandler(
     private val inventoryGrouper: InventoryGrouper,
     private val inventorySorter: InventorySorter,
-    private val sortConditionSetFactory: SortConditionSetFactory,
 ) : Listener {
     @EventHandler
-    fun onPlayerUse(event: InventoryOpenEvent) {
-        val conditions = sortConditionSetFactory.create()
-
-        if (conditions.any { !it.shouldSort(event) }) {
+    fun onInventoryClick(event: InventoryClickEvent) {
+        if (event.click != ClickType.MIDDLE) {
             return
         }
 
-        val inventory = event.view.topInventory
+        val inventory = event.clickedInventory ?: return
 
         val contents = inventory.contents.filterNotNull()
 

@@ -4,5 +4,5 @@ main: de.kolpa.mc.inventorysorting.InventorySorting
 api-version: 1.17
 prefix: InventorySorting
 authors: [ Kolpa ]
-description: Sorts Inventories on Open
+description: Sorts Inventories on middle mouse click
 website: kolpa.de
