@@ -10,5 +10,5 @@ import org.koin.dsl.module
 val inventorySortingModule = module {
     single<InventoryGrouper> { BaseInventoryGrouper() }
     single<InventorySorter> { AlphabeticInventorySorter() }
-    single { InventoryMiddleClickHandler(get(), get()) }
+    single { InventoryMiddleClickHandler(get(), get(), get()) }
 }
